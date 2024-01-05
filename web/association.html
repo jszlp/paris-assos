@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <title>Paris Association Analysis</title>
+    <link rel="stylesheet" href="./style/css/association.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"
+        integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body onLoad="sendRequestForData()">
+    <div class="layout">
+        <header>
+            <div class="header__item logo"><img src="./assets/images/logo_paris.png"></div>
+            <div></div>
+            <div class="header__item nav">
+                <div class="header__item-nav-link"><a href="/">Vue générale</a></div>
+                <div class="header__item-nav-link"><a class="bold" href="">Vue par association</a></div>
+            </div>
+        </header>
+        <div class="layout__side-bar">
+            <div class="side-bar__item-logo">
+                <img class="main-logo" src="./assets/images/logo_paris.png">
+            </div>
+            <div class="side-bar__item-navigation">
+                <div class="navigation-link"><a href="/">Vue générale</a></div>
+                <div class="navigation-link bold"><a class="bold" href="">Vue par association</a></div>
+            </div>
+            <div class="side-bar__infos-items">
+                <div class="side-bar__infos-item">
+                    <ul class="infos__items">
+                        <li class="infos__item">Auteur : Jean SZLEPER</li>
+                        <li class="infos__item">
+                            <img src="./assets/images/logo_github.svg">
+                            <a href="https://github.com/jszlp" target="_blank" rel="noopener noreferrer">Github</a>
+                        </li>
+                        <li class="infos__item">
+                            <img src="./assets/images/logo_linkedin.png">
+                            <a href="https://www.linkedin.com/in/jean-szleper-197029192/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <main class="layout__content">
+            <div class="layout__content-top"></div>
+            <div class="search__bar">
+                <input class="search__bar-input" type="text" name="association_search"
+                    placeholder="Indiquer le nom d'une association">
+            </div>
+            <div class="search__result">
+            </div>
+            <div class="details">
+                <div class="details__title"></div>
+                <div class="details__items">
+                </div>
+            </div>
+        </main>
+        <div class="details__item pattern">
+            <div class="details__item-title"></div>
+            <div class="details__item-content">
+            </div>
+        </div>
+        <footer>
+            <ul class="footer__items">
+                <li class="footer__item">Auteur : Jean SZLEPER</li>
+                <li class="footer__item">
+                    <img src="./assets/images/logo_github.svg">
+                    <a href="https://github.com/jszlp" target="_blank" rel="noopener noreferrer">Github</a>
+                </li>
+                <li class="footer__items">
+                    <img src="./assets/images/logo_linkedin.png">
+                    <a href="https://www.linkedin.com/in/jean-szleper-197029192/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+    <script src="./script/asso.js"></script>
+</body>
+
+</html>

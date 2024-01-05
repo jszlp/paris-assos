@@ -1,0 +1,423 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <title>Paris Association Analysis</title>
+    <link rel="stylesheet" href="./style/css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"
+        integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
+        integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body onLoad="sendRequestForData()">
+    <header>
+        <div class="header__item logo"><img src="./assets/images/logo_paris.png"></div>
+        <div></div>
+        <div class="header__item nav">
+            <div class="header__item-nav-link"><a class="bold" href="">Vue générale</a></div>
+            <div class="header__item-nav-link"><a href="/association.html">Vue par association</a></div>
+        </div>
+    </header>
+    <div class="layout">
+        <div class="layout__side-bar">
+            <div class="side-bar__item-logo">
+                <img class="main-logo" src="./assets/images/logo_paris.png">
+            </div>
+            <div class="side-bar__item-navigation">
+                <div class="navigation-link"><a class="bold" href="/">Vue générale</a></div>
+                <div class="navigation-link"><a href="/association.html">Vue par association</a></div>
+            </div>
+            <div class="side-bar__filter-state">
+                <div class="filter-state__title">Filtres actifs :</div>
+                <ul class="filter-state__list">
+                    <li class="filter-state__item township">Localisation : Tous</li></br>
+                    <li class="filter-state__item year">Année : Tous</li></br>
+                    <li class="filter-state__item city_committee">Direction : Tous</li></br>
+                    <li class="filter-state__item activity">Activité : Tous</li></br>
+                    <li class="filter-state__item aim_subvention">Nature : Tous</li></br>
+                </ul>
+            </div>
+            <div class="side-bar__infos-items">
+                <div class="side-bar__infos-item">
+                    <ul class="infos__items">
+                        <li class="infos__item">Auteur : Jean SZLEPER</li>
+                        <li class="infos__item">
+                            <img src="./assets/images/logo_github.svg">
+                            <a href="https://github.com/jszlp" target="_blank" rel="noopener noreferrer">Github</a>
+                        </li>
+                        <li class="infos__item">
+                            <img src="./assets/images/logo_linkedin.png">
+                            <a href="https://www.linkedin.com/in/jean-szleper-197029192/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <main class="layout__content">
+            <div class="layout__content-top"></div>
+            <section id="overview">
+                <div class="filter">
+                    <button class="filter__button left township">Localisation</button>
+                    <button class="filter__button year">Année</button>
+                    <button class="filter__button city_committee">Direction</button>
+                    <button class="filter__button activity">Activité</button>
+                    <button class="filter__button aim_subvention">Nature</button>
+                </div>
+                <div class="inputs">
+                    <div class="inputs__items township">
+                        <div class="inputs__item all">
+                            <input type="checkbox" checked><span>Toutes</span>
+                        </div>
+                        <div class="inputs__item unknown">
+                            <input type="checkbox" checked><span>Inconnue</span>
+                        </div>
+                        <div class="inputs__item paris01">
+                            <input type="checkbox" checked><span>Paris 01</span>
+                        </div>
+                        <div class="inputs__item paris02">
+                            <input type="checkbox" checked><span>Paris 02</span>
+                        </div>
+                        <div class="inputs__item paris03">
+                            <input type="checkbox" checked><span>Paris 03</span>
+                        </div>
+                        <div class="inputs__item paris04">
+                            <input type="checkbox" checked><span>Paris 04</span>
+                        </div>
+                        <div class="inputs__item paris05">
+                            <input type="checkbox" checked><span>Paris 05</span>
+                        </div>
+                        <div class="inputs__item paris06">
+                            <input type="checkbox" checked><span>Paris 06</span>
+                        </div>
+                        <div class="inputs__item paris07">
+                            <input type="checkbox" checked><span>Paris 07</span>
+                        </div>
+                        <div class="inputs__item paris08">
+                            <input type="checkbox" checked><span>Paris 08</span>
+                        </div>
+                        <div class="inputs__item paris09">
+                            <input type="checkbox" checked><span>Paris 09</span>
+                        </div>
+                        <div class="inputs__item paris10">
+                            <input type="checkbox" checked><span>Paris 10</span>
+                        </div>
+                        <div class="inputs__item paris11">
+                            <input type="checkbox" checked><span>Paris 11</span>
+                        </div>
+                        <div class="inputs__item paris12">
+                            <input type="checkbox" checked><span>Paris 12</span>
+                        </div>
+                        <div class="inputs__item paris13">
+                            <input type="checkbox" checked><span>Paris 13</span>
+                        </div>
+                        <div class="inputs__item paris14">
+                            <input type="checkbox" checked><span>Paris 14</span>
+                        </div>
+                        <div class="inputs__item paris15">
+                            <input type="checkbox" checked><span>Paris 15</span>
+                        </div>
+                        <div class="inputs__item paris16">
+                            <input type="checkbox" checked><span>Paris 16</span>
+                        </div>
+                        <div class="inputs__item paris17">
+                            <input type="checkbox" checked><span>Paris 17</span>
+                        </div>
+                        <div class="inputs__item paris18">
+                            <input type="checkbox" checked><span>Paris 18</span>
+                        </div>
+                        <div class="inputs__item paris19">
+                            <input type="checkbox" checked><span>Paris 19</span>
+                        </div>
+                        <div class="inputs__item paris20">
+                            <input type="checkbox" checked><span>Paris 20</span>
+                        </div>
+                        <div class="inputs__item val_de_marne">
+                            <input type="checkbox" checked><span>Val-de-Marne</span>
+                        </div>
+                        <div class="inputs__item yvelines">
+                            <input type="checkbox" checked><span>Yvelines</span>
+                        </div>
+                        <div class="inputs__item seine_et_marne">
+                            <input type="checkbox" checked><span>Seine-et-Marne</span>
+                        </div>
+                        <div class="inputs__item val_d_oise">
+                            <input type="checkbox" checked><span>Val d'Oise</span>
+                        </div>
+                        <div class="inputs__item hauts_de_seine">
+                            <input type="checkbox" checked><span>Hauts-de-Seine</span>
+                        </div>
+                        <div class="inputs__item essonne">
+                            <input type="checkbox" checked><span>Essonne</span>
+                        </div>
+                        <div class="inputs__item seine_saint_denis">
+                            <input type="checkbox" checked><span>Seine-Saint-Denis</span>
+                        </div>
+                    </div>
+                    <div class="inputs__items year">
+                        <div class="inputs__item all">
+                            <input type="checkbox" checked><span>Toutes</span>
+                        </div>
+                        <div class="inputs__item 2013">
+                            <input type="checkbox" checked><span>2013</span>
+                        </div>
+                        <div class="inputs__item 2014">
+                            <input type="checkbox" checked><span>2014</span>
+                        </div>
+                        <div class="inputs__item 2015">
+                            <input type="checkbox" checked><span>2015</span>
+                        </div>
+                        <div class="inputs__item 2016">
+                            <input type="checkbox" checked><span>2016</span>
+                        </div>
+                        <div class="inputs__item 2017">
+                            <input type="checkbox" checked><span>2017</span>
+                        </div>
+                        <div class="inputs__item 2018">
+                            <input type="checkbox" checked><span>2018</span>
+                        </div>
+                        <div class="inputs__item 2019">
+                            <input type="checkbox" checked><span>2019</span>
+                        </div>
+                        <div class="inputs__item 2020">
+                            <input type="checkbox" checked><span>2020</span>
+                        </div>
+                        <div class="inputs__item 2021">
+                            <input type="checkbox" checked><span>2021</span>
+                        </div>
+                        <div class="inputs__item 2022">
+                            <input type="checkbox" checked><span>2022</span>
+                        </div>
+                        <div class="inputs__item 2023">
+                            <input type="checkbox" checked><span>2023</span>
+                        </div>
+                    </div>
+                    <div class="inputs__items city_committee">
+                        <div class="inputs__item all">
+                            <input type="checkbox" checked><span>Toutes</span>
+                        </div>
+                        <div class="inputs__item DDCT">
+                            <input type="checkbox" checked><span>DDCT</span>
+                        </div>
+                        <div class="inputs__item DAC">
+                            <input type="checkbox" checked><span>DAC</span>
+                        </div>
+                        <div class="inputs__item DJS">
+                            <input type="checkbox" checked><span>DJS</span>
+                        </div>
+                        <div class="inputs__item DASES">
+                            <input type="checkbox" checked><span>DASES</span>
+                        </div>
+                        <div class="inputs__item DAE">
+                            <input type="checkbox" checked><span>DAE</span>
+                        </div>
+                        <div class="inputs__item DFPE">
+                            <input type="checkbox" checked><span>DFPE</span>
+                        </div>
+                        <div class="inputs__item DASCO">
+                            <input type="checkbox" checked><span>DASCO</span>
+                        </div>
+                        <div class="inputs__item DPSP">
+                            <input type="checkbox" checked><span>DPSP</span>
+                        </div>
+                        <div class="inputs__item DPVI">
+                            <input type="checkbox" checked><span>DPVI</span>
+                        </div>
+                        <div class="inputs__item DGRI">
+                            <input type="checkbox" checked><span>DGRI</span>
+                        </div>
+                        <div class="inputs__item DEVE">
+                            <input type="checkbox" checked><span>DEVE</span>
+                        </div>
+                        <div class="inputs__item DSOL">
+                            <input type="checkbox" checked><span>DSOL</span>
+                        </div>
+                        <div class="inputs__item DPMP">
+                            <input type="checkbox" checked><span>DPMP</span>
+                        </div>
+                        <div class="inputs__item DPE">
+                            <input type="checkbox" checked><span>DPE</span>
+                        </div>
+                        <div class="inputs__item DSP">
+                            <input type="checkbox" checked><span>DSP</span>
+                        </div>
+                        <div class="inputs__item DVD">
+                            <input type="checkbox" checked><span>DVD</span>
+                        </div>
+                        <div class="inputs__item SG">
+                            <input type="checkbox" checked><span>SG</span>
+                        </div>
+                        <div class="inputs__item DUCT">
+                            <input type="checkbox" checked><span>DUCT</span>
+                        </div>
+                        <div class="inputs__item DGOM">
+                            <input type="checkbox" checked><span>DGOM</span>
+                        </div>
+                        <div class="inputs__item DLH">
+                            <input type="checkbox" checked><span>DLH</span>
+                        </div>
+                        <div class="inputs__item SG-MI-CINEMA">
+                            <input type="checkbox" checked><span>SG-MI-CINEMA</span>
+                        </div>
+                        <div class="inputs__item DU">
+                            <input type="checkbox" checked><span>DU</span>
+                        </div>
+                        <div class="inputs__item DTEC">
+                            <input type="checkbox" checked><span>DTEC</span>
+                        </div>
+                        <div class="inputs__item DRH">
+                            <input type="checkbox" checked><span>DRH</span>
+                        </div>
+                        <div class="inputs__item DFA">
+                            <input type="checkbox" checked><span>DFA</span>
+                        </div>
+                        <div class="inputs__item DICOM">
+                            <input type="checkbox" checked><span>DICOM</span>
+                        </div>
+                        <div class="inputs__item CASVP">
+                            <input type="checkbox" checked><span>CASVP</span>
+                        </div>
+                        <div class="inputs__item DAJ">
+                            <input type="checkbox" checked><span>DAJ</span>
+                        </div>
+                        <div class="inputs__item DILT">
+                            <input type="checkbox" checked><span>DILT</span>
+                        </div>
+                        <div class="inputs__item SG-DPMC">
+                            <input type="checkbox" checked><span>SG-DPMC</span>
+                        </div>
+                        <div class="inputs__item SGCP">
+                            <input type="checkbox" checked><span>SGCP</span>
+                        </div>
+                    </div>
+                    <div class="inputs__items activity">
+                        <div class="inputs__item all">
+                            <input type="checkbox" checked><span>Toutes</span>
+                        </div>
+                        <div class="inputs__item culture_arts">
+                            <input type="checkbox" checked><span>Culture & Arts</span>
+                        </div>
+                        <div class="inputs__item education_formation">
+                            <input type="checkbox" checked><span>Éducation & formation</span>
+                        </div>
+                        <div class="inputs__item hobbies">
+                            <input type="checkbox" checked><span>Loisirs</span>
+                        </div>
+                        <div class="inputs__item social">
+                            <input type="checkbox" checked><span>Social</span>
+                        </div>
+                        <div class="inputs__item precarity_exclusion">
+                            <input type="checkbox" checked><span>Précarité & Exclusion</span>
+                        </div>
+                        <div class="inputs__item assocation_help">
+                            <input type="checkbox" checked><span>Aides aux associations</span>
+                        </div>
+                        <div class="inputs__item sport">
+                            <input type="checkbox" checked><span>Sport</span>
+                        </div>
+                        <div class="inputs__item work">
+                            <input type="checkbox" checked><span>Emploi</span>
+                        </div>
+                        <div class="inputs__item communication_media">
+                            <input type="checkbox" checked><span>Communication & média</span>
+                        </div>
+                        <div class="inputs__item humanitarian">
+                            <input type="checkbox" checked><span>Humanitaire</span>
+                        </div>
+                        <div class="inputs__item economy">
+                            <input type="checkbox" checked><span>Économie</span>
+                        </div>
+                        <div class="inputs__item health">
+                            <input type="checkbox" checked><span>Santé</span>
+                        </div>
+                        <div class="inputs__item local_life">
+                            <input type="checkbox" checked><span>Vie et animation locale</span>
+                        </div>
+                        <div class="inputs__item memory">
+                            <input type="checkbox" checked><span>Mémoire</span>
+                        </div>
+                        <div class="inputs__item international_relationships">
+                            <input type="checkbox" checked><span>Relations internationales</span>
+                        </div>
+                        <div class="inputs__item ideas_opinions">
+                            <input type="checkbox" checked><span>Idée & opinion</span>
+                        </div>
+                        <div class="inputs__item tourism">
+                            <input type="checkbox" checked><span>Tourisme</span>
+                        </div>
+                        <div class="inputs__item architecture_urban_planning">
+                            <input type="checkbox" checked><span>Architecture & urbanisme</span>
+                        </div>
+                        <div class="inputs__item technology_research">
+                            <input type="checkbox" checked><span>Technique & Recherche</span>
+                        </div>
+                        <div class="inputs__item rights_interests_defense">
+                            <input type="checkbox" checked><span>Défense des droits et des intérêts</span>
+                        </div>
+                        <div class="inputs__item environment_ecology">
+                            <input type="checkbox" checked><span>Environnement & écologie</span>
+                        </div>
+                        <div class="inputs__item travel_means">
+                            <input type="checkbox" checked><span>Déplacements et transports</span>
+                        </div>
+                    </div>
+                    <div class="inputs__items aim_subvention">
+                        <div class="inputs__item all">
+                            <input type="checkbox" checked><span>Toutes</span>
+                        </div>
+                        <div class="inputs__item not_specified">
+                            <input type="checkbox" checked><span>Non précisée</span>
+                        </div>
+                        <div class="inputs__item project">
+                            <input type="checkbox" checked><span>Projet</span>
+                        </div>
+                        <div class="inputs__item operation">
+                            <input type="checkbox" checked><span>Fonctionnement</span>
+                        </div>
+                        <div class="inputs__item investment">
+                            <input type="checkbox" checked><span>Investissement</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard top">
+                    <div class="dashboard__chart city_committee">
+                    </div>
+                    <div class="dashboard__chart activity"></div>
+                </div>
+                <div class="dashboard geo">
+                    <div class="dashboard__chart township"></div>
+                </div>
+                <div class="dashboard">
+                    <div class="dashboard__chart aim_subvention"></div>
+                    <div class="dashboard__chart year"></div>
+                </div>
+                <div class="dashboard rank">
+                    <div class="dashboard__chart rank"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <ul class="footer__items">
+            <li class="footer__item">Auteur : Jean SZLEPER</li>
+            <li class="footer__item">
+                <img src="./assets/images/logo_github.svg">
+                <a href="https://github.com/jszlp" target="_blank" rel="noopener noreferrer">Github</a>
+            </li>
+            <li class="footer__items">
+                <img src="./assets/images/logo_linkedin.png">
+                <a href="https://www.linkedin.com/in/jean-szleper-197029192/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </li>
+        </ul>
+    </footer>
+    <script src='./script/utils.js'></script>
+    <script src='./script/data.js'></script>
+    <script src='./script/dashboard.js'></script>
+    <script src="./script/main.js"></script>
+    <script src='./script/events.js'></script>
+</body>
+
+</html>
