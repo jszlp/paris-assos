@@ -225,39 +225,3 @@
     scrollbar-width: none;
     /* Firefox */
 }
-
-footer {
-    display: none;
-    background-color: rgba(0, 0, 0, 0.06);
-    position: absolute;
-    top: 2150px;
-    text-align: center;
-    padding-top: 55px;
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    img {
-        height: 12px;
-        width: 12px;
-        padding-right: 0.25rem;
-    }
-
-    @media (max-width: 1400px) {
-        width: 100%;
-        height: 200px;
-        display: block;
-    }
-
-    @media (max-width: 1010px) {
-       top: 2090px;
-    }
-
-    @media (max-width: 850px) {
-        top: 3090px;
-    }
-}

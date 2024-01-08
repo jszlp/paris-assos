@@ -14,14 +14,24 @@ html {
 body {
     width: 100%;
     margin: 0px;
+    min-height: 100vh;
+
+
+    @media (max-width: 1400px) {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .layout {
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
-    height: 100%;
-    margin: Opx;
+
+
+    @media (max-width: 1400px) {
+        flex: auto;
+    }
 }
 
 .layout__side-bar {
@@ -73,7 +83,7 @@ body {
 
 .back-button {
     cursor: pointer;
-    border: 0px solid rgba(0,0,0,0.06);
+    border: 0px solid rgba(0, 0, 0, 0.06);
 }
 
 .logo-back {
@@ -149,20 +159,25 @@ body {
 }
 
 header {
-    display:none;
+    display: none;
     background-color: rgba(0, 0, 0, 0.06);
     position: fixed;
     grid-template-columns: 10% auto 330px;
     z-index: 100;
-    
+
     @media (max-width: 1400px) {
         width: 100%;
         height: 50px;
         display: grid;
     }
+
     img {
         width: 30px;
         height: 30px;
+    }
+
+    @media (max-width: 400px) {
+        display: block;
     }
 }
 
@@ -181,11 +196,51 @@ header {
 
     &.logo {
         padding-left: 30px;
+
+        @media (max-width: 400px) {
+            display: none;
+        }
     }
 
     &.nav {
         display: grid;
         grid-template-columns: 50% 50%;
         padding-right: 0.5rem;
+        justify-content: center;
+        align-content: center;
+        height: 100%;
+    }
+}
+
+.header__item-nav-link {
+    text-align: center;
+}
+
+footer {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.06);
+    text-align: center;
+    padding-top: 55px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    width: 100%;
+    height: 160px;
+    justify-content:center;
+    grid-template-rows: auto;
+
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    img {
+        height: 12px;
+        width: 12px;
+        padding-right: 0.25rem;
+    }
+
+    @media (max-width: 1400px) {
+        display: grid;
     }
 }
