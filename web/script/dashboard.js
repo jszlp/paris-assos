@@ -412,9 +412,7 @@ function makeGeoChart(category) {
 
     // Initializing tools :
 
-    const chartWidth = clientWidth < 1400 ? clientWidth : clientWidth * 0.8
-    const scaleRatio = clientWidth < 850 ? clientWidth / 850 : 1
-    const translateX = clientWidth < 850 ? (clientWidth < 650 ? chartWidth * 0.25 * scaleRatio : chartWidth * 0.1) : 0
+    const chartWidth = clientWidth < 1400 ? ( clientWidth - 40 ) : clientWidth * 0.8
     const scC = d3.scaleQuantile().domain(d3.extent(Object.keys(geoAggData).map(e => geoAggData[e]['index']))).range(d3.schemeBlues[9])
     const projection_paris = d3.geoMercator().fitSize([chartWidth, 300], paris_data)
     const path_paris = d3.geoPath().projection(projection_paris)
@@ -422,7 +420,7 @@ function makeGeoChart(category) {
     chart
         .append('g')
         .attr('class', 'paris_chart')
-        .attr('transform', 'translate(' + translateX + ',' + 50 / scaleRatio + ') ' + 'scale(' + scaleRatio + ')')
+        .attr('transform', 'translate(' + 0 + ',' + (500 - 400) / 2 + ')')
         .selectAll("path")
         .data(paris_data.features)
         .enter()
@@ -455,7 +453,7 @@ function makeRankChart() {
     // Intializing tools :
 
     const chartWidth = clientWidth < 1400 ? clientWidth : clientWidth * 0.8
-    const scaleRatio = clientWidth < 850 ? (clientWidth < 650 ? (clientWidth / 650) : (clientWidth / 850)) : 1
+    const scaleX = clientWidth < 1400 ? (chartWidth - 120) / chartWidth : (chartWidth - 100) / chartWidth
     const treemap = d3.treemap().tile(d3.treemapSquarify)
         .size([chartWidth, 400])
         .padding(1)
@@ -467,7 +465,7 @@ function makeRankChart() {
 
     const scC = d3.scaleOrdinal(d3.schemeSet3).domain(ranking.children.map(d => d.subvention_amount))
 
-    const leaf = chart.attr('transform', 'translate(' + root.x1 * 0.1 / scaleRatio + ',' + root.y1 * 0.2 + ') scale(' + 0.8 * scaleRatio + ')')
+    const leaf = chart.attr('transform', 'translate(' + 40 + ',' + ( 500 - root.y1 ) / 2 + ') scale(' + scaleX + "," + 0.75 + ')')
         .selectAll('g')
         .data(root.leaves())
         .enter()

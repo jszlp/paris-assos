@@ -122,7 +122,7 @@ function addTitle(chartContainer, category) {
     const svgWidth = chartContainer.clientWidth
     const svgHeight = chartContainer.clientHeight
     const title = titles[category]
-    const widthUnit = 15
+    const widthUnit = 14
     const titleLength = title.split('').length
     const titleSpaceWidth = svgWidth - 80
     const yOffset = 60

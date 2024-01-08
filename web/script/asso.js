@@ -12,6 +12,13 @@ const detailPattern = document.querySelector('.details__item')
 const displayedProperties = ['file_object','township', 'year', 'city_committee', 'activity', 'aim_subvention', 'subvention_amount']
 const propertyMapper = { 'file_object': "Objet du dossier", "township": "Localisation", "year": "Année", "city_committee": "Direction", "activity": "Activité", "aim_subvention": "Nature de la subvention", "subvention_amount": "Montant de la subvention" }
 let displayedIds = []
+const locale = d3.formatLocale({
+    "decimal": ".",
+    "thousands": " ",
+    "grouping": [3],
+    "currency": ["", "€"]
+})
+const format = locale.format("$,.0f")
 
 searchInput.addEventListener('input', (e) => search(e, 400))
 
@@ -127,7 +134,7 @@ function displayDetails(event) {
 
         for (let displayedProperty of displayedProperties) {
             const subContent = document.createElement('div')
-            subContent.textContent = propertyMapper[displayedProperty] + " : " + subvention[displayedProperty]
+            subContent.textContent = propertyMapper[displayedProperty] + " : " + ((displayedProperty === "subvention_amount") ? format(subvention[displayedProperty]) : subvention[displayedProperty])
             subContent.classList.add('subcontent')
             content.append(subContent)
         }
